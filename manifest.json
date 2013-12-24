@@ -1,0 +1,13 @@
+{
+  "name": "Show recent favorites by your Flickr contacts.",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "icons": {"16": "icon16.png", "128": "icon128.png"},
+  "content_scripts": [ {
+      "js": ["jquery-1.8.1.min.js", "md5.js", "api-credentials.js", "flickr.js", "content.js"],
+      "matches": ["http://www.flickr.com/*"]
+  } ],
+  "permissions": [
+    "http://*/*", "https://*/*", "background"
+  ]
+}

@@ -1,7 +1,7 @@
 // FlickrContactFavorites
 // 2013, Kai Schneider, https://github.com/schneikai
 
-const apiUrl = "http://api.flickr.com/services/rest/?method=";
+const apiUrl = "//api.flickr.com/services/rest/?method=";
 var favorites = [];
 var checkLoadCompleteTimer;
 
@@ -96,7 +96,7 @@ function loadFavoritesOfUser(id) {
     success: function(data, textStatus, xhr) {
       $(data).find("photo").each(function(index,photo) {
         photo = $(photo);
-        var photo_data = { "date_faved": photo.attr('date_faved'), "title": photo.attr('title'), "src": photo.attr(thumbnail), "href": "http://www.flickr.com/photos/" + photo.attr('owner') + "/" + photo.attr('id') };
+        var photo_data = { "date_faved": photo.attr('date_faved'), "title": photo.attr('title'), "src": photo.attr(thumbnail), "href": "//www.flickr.com/photos/" + photo.attr('owner') + "/" + photo.attr('id') };
         favorites.push(photo_data);
       });
     },

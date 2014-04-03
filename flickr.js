@@ -27,7 +27,7 @@ function signIn(){
         sig = MD5(apiSecret + "api_key" + apiKey + "frob" + frob + "permswrite");
         login_url = "http://www.flickr.com/services/auth/?api_key=" + apiKey + "&perms=write&frob=" + frob + "&api_sig=" + sig;
         window.open(login_url);
-        alert("Start download agin when you completed the Flickr login.");
+        alert("You need to allow this widget to access your Flickr account. The authorization opens in a new tab. When you are done, start your action again.");
       }
     });
 
@@ -70,7 +70,7 @@ function signIn(){
         success: function(data, textStatus, xhr) {
           token = $(data).find('token').text();
           if(!token) {
-            alert("Failed to validate token. Please login again. (" + xhr.responseText + ")");
+            alert("Failed to validate token. Please try again. (" + xhr.responseText + ")");
             localStorage.removeItem("frob");
             localStorage.removeItem("token");
             return false;

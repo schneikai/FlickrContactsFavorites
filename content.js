@@ -47,11 +47,11 @@ function showFavorites() {
   elm.append($('<h1>Your Contacts Favorites</h1>'));
 
   // Sort favorites by date when the where faved.
-  favs = favorites.sort(function(obj1, obj2) { return obj2.date_faved - obj1.date_faved; });
+  favs = favorites.sort(function(obj1, obj2) { return parseInt(obj2.date_faved, 10) - parseInt(obj1.date_faved, 10); });
   // Limit the number of photos in the array.
   // If we have to many photos to display it can really hurt the browser.
   // Maybe we can add a paging here?
-  if(favs.length > 3000) favs = favs.slice(3000);
+  if(favs.length > 3000) favs = favs.slice(0, 3000);
 
   $.each(favs, function(index,photo) {
     elm.append($('<a href="' + photo.href + '" style="margin: 5px; display: block; float: left;"><img src="' + photo.src + '" /></a>'));
